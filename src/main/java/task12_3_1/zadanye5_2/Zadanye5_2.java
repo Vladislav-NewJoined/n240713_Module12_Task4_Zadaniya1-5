@@ -18,7 +18,6 @@ public class Zadanye5_2 {
 
     public static void main(String[] args) {
         System.out.println("""
-            Задание:
             Модуль 12. Базы данных и Git. Задание №4:
             Задание:
             5. Напишите запрос для вывода имени и фамилии и Employee  ID  в порядке убывания номера Employee ID

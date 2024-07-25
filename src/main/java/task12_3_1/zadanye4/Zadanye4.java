@@ -18,7 +18,6 @@ public class Zadanye4 {
 
     public static void main(String[] args) {
         System.out.println("""
-            Задание:
             Модуль 12. Базы данных и Git. Задание №4:
             Задание:
             4. Напишите запрос для вывода фамилии и даты рождения
