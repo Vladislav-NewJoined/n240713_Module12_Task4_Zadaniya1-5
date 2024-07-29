@@ -1,4 +1,4 @@
-package task12_3_1.zadanye5;
+package task12_4_1.zadanye3;
 
 import java.sql.*;
 
@@ -10,7 +10,7 @@ import java.sql.*;
 // Пароль: 123
 // Для проверки настроек можно сделать такой тестовый запрос:  "select * from users" в DB Browser в папке "Consoles -→ somedbPGtest"
 
-public class Zadanye5 {
+public class Zadanye3 {
 
     private static final String URL = "jdbc:postgresql://localhost:5432/somedbPGtest";
     private static final String USER = "someuser";
@@ -18,10 +18,10 @@ public class Zadanye5 {
 
     public static void main(String[] args) {
         System.out.println("""
+            Задание:
             Модуль 12. Базы данных и Git. Задание №4:
             Задание:
-            5. Напишите запрос для вывода имени и фамилии и Employee  ID  в порядке убывания номера Employee ID
-            
+            3. Напишите запрос для вывода всех имен и Employee ID
             Решение (при каждом последующем запуске кода перезагрузите соединение
                     с базой данных somedbPostgres, т.е. нажмите disconnect' и затем
                     'connect' в блоке 'DB Browser' внутри 'IntelliJ IDEA'
@@ -81,16 +81,16 @@ public class Zadanye5 {
             }
 
             try (Statement statement = connection.createStatement()) {
-                // Выполнение запроса на выборку имени, фамилии и Employee ID в порядке убывания employee_id
-                String selectNamesAndIdsQuery = "SELECT employee_id, first_name, last_name FROM users ORDER BY employee_id DESC";
+                // Выполнение запроса на выборку всех имен и Employee ID
+                String selectNamesAndIdsQuery = "SELECT first_name, employee_id FROM users";
                 ResultSet namesAndIdsRs = statement.executeQuery(selectNamesAndIdsQuery);
 
                 while (namesAndIdsRs.next()) {
                     int employeeId = namesAndIdsRs.getInt("employee_id");
                     String firstName = namesAndIdsRs.getString("first_name");
-                    String lastName = namesAndIdsRs.getString("last_name");
-                    System.out.println("Employee ID: " + employeeId + ", First Name: " + firstName + ", Last Name: " + lastName);
+                    System.out.println("Employee ID: " + employeeId + ", First Name: " + firstName);
                 }
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }
